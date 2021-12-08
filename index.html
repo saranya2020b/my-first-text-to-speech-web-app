@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speecto</title>
+    <style>
+        body {background-color: powderblue; text-align: center; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQACHAdPlEWN3j3qYG5bRApqhkPHNcLFMWtkA&usqp=CAU);
+        background-position:center ;
+        background-size: cover;
+        }
+        h1   {color: blue; font-size: 50px;}
+        p    {color: red;}
+        img{
+            width: 300px;
+            height: 300px;
+            color: white;
+            
+        
+        }
+        label{
+            font-size:40px;
+            font-family: Fantasy;
+            margin-right: 10px;
+        }
+        input{
+            font-size: 40px;
+            font-family: Fantasy;
+
+        }
+        h4{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: x-large;
+        }
+        </style>
+</head>
+<body>
+    
+    
+    <label for="Speech Recognition">Speech Recognition</label>
+    <input type="text" name="" id="SpeechtToText"
+    placeholder="speak somthing" onclick="record()">
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang="eg-GB"
+            recognition.onresult= function(event){
+                console.log(event);
+                document.getElementById('SpeechtToText').value = event.results[0] [0].transcript; 
+            }
+            recognition.start();
+        }
+    </script>
+    
+</body>
+</html>
